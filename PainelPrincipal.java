@@ -60,7 +60,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         pannelAbaEstoque = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        labelClicavelCadastrarProduto = new javax.swing.JLabel();
         pannelAbaHistoricoDeVendas = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -274,17 +274,17 @@ public class PainelPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTable1);
 
-        jLabel1.setForeground(new java.awt.Color(0, 51, 204));
-        jLabel1.setText("<HTML><U>YOUR TEXT HERE</U></HTML>");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelClicavelCadastrarProduto.setForeground(new java.awt.Color(0, 51, 204));
+        labelClicavelCadastrarProduto.setText("<HTML><U>Cadastrar produto...</U></HTML>");
+        labelClicavelCadastrarProduto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                labelClicavelCadastrarProdutoMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel1MouseEntered(evt);
+                labelClicavelCadastrarProdutoMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel1MouseExited(evt);
+                labelClicavelCadastrarProdutoMouseExited(evt);
             }
         });
 
@@ -297,7 +297,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
                 .addGroup(pannelAbaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
                     .addGroup(pannelAbaEstoqueLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelClicavelCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -307,7 +307,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(labelClicavelCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pannelNavegacao.add(pannelAbaEstoque, "abaEstoque");
@@ -440,17 +440,17 @@ public class PainelPrincipal extends javax.swing.JFrame {
         cardLayout.show(pannelNavegacao, "abaCliente");// TODO add your handling code here:
     }                                                          
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {                                     
+    private void labelClicavelCadastrarProdutoMouseClicked(java.awt.event.MouseEvent evt) {                                                           
         entradaDeCodigo.grabFocus();                // TODO add your handling code here:
-    }                                    
+    }                                                          
 
-    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {                                     
-        jLabel1.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));        // TODO add your handling code here:
-    }                                    
+    private void labelClicavelCadastrarProdutoMouseEntered(java.awt.event.MouseEvent evt) {                                                           
+        labelClicavelCadastrarProduto.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));        // TODO add your handling code here:
+    }                                                          
 
-    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {                                    
-        jLabel1.setCursor(java.awt.Cursor.getDefaultCursor());        // TODO add your handling code here:
-    }                                   
+    private void labelClicavelCadastrarProdutoMouseExited(java.awt.event.MouseEvent evt) {                                                          
+        labelClicavelCadastrarProduto.setCursor(java.awt.Cursor.getDefaultCursor());        // TODO add your handling code here:
+    }                                                         
 
     /**
      * @param args the command line arguments
@@ -502,7 +502,6 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField entradaCliente;
     private javax.swing.JTextField entradaDeCodigo;
     private javax.swing.JTextField entradaProduto;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -512,6 +511,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JLabel labelCategoria;
+    private javax.swing.JLabel labelClicavelCadastrarProduto;
     private javax.swing.JLabel labelCliente;
     private javax.swing.JLabel labelProduto;
     private javax.swing.JLabel logotipo;
