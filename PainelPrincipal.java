@@ -409,7 +409,8 @@ public class PainelPrincipal extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void entradaDeCodigoActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        cardLayout.show(pannelNavegacao, "abaVenda");        // TODO add your handling code here:
+        cardLayout.show(pannelNavegacao, "abaVenda");
+                // TODO add your handling code here:
     }                                               
 
     private void botaoAbaVendaActionPerformed(java.awt.event.ActionEvent evt) {                                              
