@@ -35,7 +35,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         pannelLogotipo = new javax.swing.JPanel();
         logotipo = new javax.swing.JLabel();
         pannelDisplayEntrada = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPaneDisplay = new javax.swing.JScrollPane();
         displaySaida = new javax.swing.JTextArea();
         entradaDeCodigo = new javax.swing.JTextField();
         displayError = new javax.swing.JLabel();
@@ -46,7 +46,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         botaoAbaCadastroDeClientes = new javax.swing.JButton();
         pannelNavegacao = new javax.swing.JPanel();
         pannelAbaVenda = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPaneRelatorioVenda = new javax.swing.JScrollPane();
         displayRelatorioDaVenda = new javax.swing.JTextArea();
         botaoFinalizar = new javax.swing.JButton();
         botaoAdicionar = new javax.swing.JButton();
@@ -58,15 +58,16 @@ public class PainelPrincipal extends javax.swing.JFrame {
         labelProduto = new javax.swing.JLabel();
         entradaProduto = new javax.swing.JTextField();
         pannelAbaEstoque = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jScrollPaneEstoque = new javax.swing.JScrollPane();
+        tabelaEstoque = new javax.swing.JTable();
         labelClicavelCadastrarProduto = new javax.swing.JLabel();
         pannelAbaHistoricoDeVendas = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jScrollPaneVendas = new javax.swing.JScrollPane();
+        tabelaVendas = new javax.swing.JTable();
         pannelAbaCadastroDeClientes = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jScrollPaneClientes = new javax.swing.JScrollPane();
+        tabelaClientes = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,7 +93,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         displaySaida.setColumns(20);
         displaySaida.setFont(new java.awt.Font("Monospaced", 0, 36)); // NOI18N
         displaySaida.setRows(1);
-        jScrollPane1.setViewportView(displaySaida);
+        jScrollPaneDisplay.setViewportView(displaySaida);
 
         entradaDeCodigo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         entradaDeCodigo.setText("Insira o código do produto...");
@@ -116,14 +117,14 @@ public class PainelPrincipal extends javax.swing.JFrame {
         pannelDisplayEntrada.setLayout(pannelDisplayEntradaLayout);
         pannelDisplayEntradaLayout.setHorizontalGroup(
             pannelDisplayEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPaneDisplay)
             .addComponent(entradaDeCodigo, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(displayError, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pannelDisplayEntradaLayout.setVerticalGroup(
             pannelDisplayEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pannelDisplayEntradaLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(displayError, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -190,7 +191,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         displayRelatorioDaVenda.setEditable(false);
         displayRelatorioDaVenda.setColumns(20);
         displayRelatorioDaVenda.setRows(5);
-        jScrollPane2.setViewportView(displayRelatorioDaVenda);
+        jScrollPaneRelatorioVenda.setViewportView(displayRelatorioDaVenda);
 
         botaoFinalizar.setText("Finalizar");
 
@@ -216,7 +217,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
             pannelAbaVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pannelAbaVendaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+                .addComponent(jScrollPaneRelatorioVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pannelAbaVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pannelAbaVendaLayout.createSequentialGroup()
@@ -255,24 +256,39 @@ public class PainelPrincipal extends javax.swing.JFrame {
                             .addComponent(botaoFinalizar)
                             .addComponent(botaoAdicionar)
                             .addComponent(botaoCancelar)))
-                    .addComponent(jScrollPane2))
+                    .addComponent(jScrollPaneRelatorioVenda))
                 .addContainerGap())
         );
 
         pannelNavegacao.add(pannelAbaVenda, "abaVenda");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaEstoque.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Código", "Nome", "Quantidade", "Valor", "Disponível"
             }
-        ));
-        jScrollPane3.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPaneEstoque.setViewportView(tabelaEstoque);
 
         labelClicavelCadastrarProduto.setForeground(new java.awt.Color(0, 51, 204));
         labelClicavelCadastrarProduto.setText("<HTML><U>Cadastrar produto...</U></HTML>");
@@ -295,7 +311,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
             .addGroup(pannelAbaEstoqueLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pannelAbaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
                     .addGroup(pannelAbaEstoqueLayout.createSequentialGroup()
                         .addComponent(labelClicavelCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -305,14 +321,14 @@ public class PainelPrincipal extends javax.swing.JFrame {
             pannelAbaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pannelAbaEstoqueLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                .addComponent(jScrollPaneEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelClicavelCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pannelNavegacao.add(pannelAbaEstoque, "abaEstoque");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaVendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -323,7 +339,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable2);
+        jScrollPaneVendas.setViewportView(tabelaVendas);
 
         javax.swing.GroupLayout pannelAbaHistoricoDeVendasLayout = new javax.swing.GroupLayout(pannelAbaHistoricoDeVendas);
         pannelAbaHistoricoDeVendas.setLayout(pannelAbaHistoricoDeVendasLayout);
@@ -331,31 +347,49 @@ public class PainelPrincipal extends javax.swing.JFrame {
             pannelAbaHistoricoDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pannelAbaHistoricoDeVendasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(257, Short.MAX_VALUE))
+                .addComponent(jScrollPaneVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pannelAbaHistoricoDeVendasLayout.setVerticalGroup(
             pannelAbaHistoricoDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pannelAbaHistoricoDeVendasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pannelNavegacao.add(pannelAbaHistoricoDeVendas, "abaHistorico");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "CPF/CNPJ", "Nome", "Valor Total em Compras", "Vendas Totais", "Disponível"
             }
-        ));
-        jScrollPane5.setViewportView(jTable3);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPaneClientes.setViewportView(tabelaClientes);
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel1.setText("<HTML><U>Cadastrar Cliente...<U><HTML>");
 
         javax.swing.GroupLayout pannelAbaCadastroDeClientesLayout = new javax.swing.GroupLayout(pannelAbaCadastroDeClientes);
         pannelAbaCadastroDeClientes.setLayout(pannelAbaCadastroDeClientesLayout);
@@ -363,15 +397,20 @@ public class PainelPrincipal extends javax.swing.JFrame {
             pannelAbaCadastroDeClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pannelAbaCadastroDeClientesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addGroup(pannelAbaCadastroDeClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
+                    .addGroup(pannelAbaCadastroDeClientesLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pannelAbaCadastroDeClientesLayout.setVerticalGroup(
             pannelAbaCadastroDeClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pannelAbaCadastroDeClientesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPaneClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pannelNavegacao.add(pannelAbaCadastroDeClientes, "abaCliente");
@@ -503,14 +542,12 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField entradaCliente;
     private javax.swing.JTextField entradaDeCodigo;
     private javax.swing.JTextField entradaProduto;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPaneClientes;
+    private javax.swing.JScrollPane jScrollPaneDisplay;
+    private javax.swing.JScrollPane jScrollPaneEstoque;
+    private javax.swing.JScrollPane jScrollPaneRelatorioVenda;
+    private javax.swing.JScrollPane jScrollPaneVendas;
     private javax.swing.JLabel labelCategoria;
     private javax.swing.JLabel labelClicavelCadastrarProduto;
     private javax.swing.JLabel labelCliente;
@@ -524,5 +561,8 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel pannelDisplayEntrada;
     private javax.swing.JPanel pannelLogotipo;
     private javax.swing.JPanel pannelNavegacao;
+    private javax.swing.JTable tabelaClientes;
+    private javax.swing.JTable tabelaEstoque;
+    private javax.swing.JTable tabelaVendas;
     // End of variables declaration                   
 }
