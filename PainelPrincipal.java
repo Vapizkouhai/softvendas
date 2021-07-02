@@ -13,7 +13,6 @@ public class PainelPrincipal extends javax.swing.JFrame {
         cardLayout = (java.awt.CardLayout) (pannelNavegacao.getLayout());
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
@@ -50,7 +49,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         pannelAbaHistoricoDeVendas = new javax.swing.JPanel();
         jScrollPaneVendas = new javax.swing.JScrollPane();
         tabelaVendas = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        labelClicavelRelatorioDeVendas = new javax.swing.JLabel();
         pannelAbaCadastroDeClientes = new javax.swing.JPanel();
         jScrollPaneClientes = new javax.swing.JScrollPane();
         tabelaClientes = new javax.swing.JTable();
@@ -193,15 +192,34 @@ public class PainelPrincipal extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 entradaClienteFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                entradaClienteFocusLost(evt);
+            }
         });
 
-        labelCategoria.setText("Categoria");
+        labelCategoria.setText("Categoria do Produto");
 
         entradaCategoria.setText("--INFORMAR A CATEGORIA--");
+        entradaCategoria.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                entradaCategoriaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                entradaCategoriaFocusLost(evt);
+            }
+        });
 
         labelProduto.setText("Produto");
 
         entradaProduto.setText("--INFORMAR O PRODUTO--");
+        entradaProduto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                entradaProdutoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                entradaProdutoFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout pannelAbaVendaLayout = new javax.swing.GroupLayout(pannelAbaVenda);
         pannelAbaVenda.setLayout(pannelAbaVendaLayout);
@@ -219,11 +237,11 @@ public class PainelPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(botaoFinalizar))
                     .addComponent(labelCliente)
-                    .addComponent(labelCategoria)
                     .addComponent(labelProduto)
                     .addComponent(entradaCliente)
                     .addComponent(entradaCategoria)
-                    .addComponent(entradaProduto))
+                    .addComponent(entradaProduto)
+                    .addComponent(labelCategoria))
                 .addContainerGap())
         );
         pannelAbaVendaLayout.setVerticalGroup(
@@ -348,7 +366,8 @@ public class PainelPrincipal extends javax.swing.JFrame {
         });
         jScrollPaneVendas.setViewportView(tabelaVendas);
 
-        jLabel2.setText("jLabel2");
+        labelClicavelRelatorioDeVendas.setForeground(new java.awt.Color(0, 0, 255));
+        labelClicavelRelatorioDeVendas.setText("<HTML><U>Relatório de Vendas Totais<U><HTML>");
 
         javax.swing.GroupLayout pannelAbaHistoricoDeVendasLayout = new javax.swing.GroupLayout(pannelAbaHistoricoDeVendas);
         pannelAbaHistoricoDeVendas.setLayout(pannelAbaHistoricoDeVendasLayout);
@@ -359,7 +378,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
                 .addGroup(pannelAbaHistoricoDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPaneVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
                     .addGroup(pannelAbaHistoricoDeVendasLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(labelClicavelRelatorioDeVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -369,7 +388,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPaneVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2))
+                .addComponent(labelClicavelRelatorioDeVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pannelNavegacao.add(pannelAbaHistoricoDeVendas, "abaHistorico");
@@ -507,8 +526,40 @@ public class PainelPrincipal extends javax.swing.JFrame {
     }                                                         
 
     private void entradaClienteFocusGained(java.awt.event.FocusEvent evt) {                                           
-        // TODO add your handling code here:
+        if (entradaCliente.getText().equals("--INFORMAR O CLIENTE--")){
+            entradaCliente.setText("");
+        }// TODO add your handling code here:
     }                                          
+
+    private void entradaClienteFocusLost(java.awt.event.FocusEvent evt) {                                         
+        if (entradaCliente.getText().equals("")){
+            entradaCliente.setText("--INFORMAR O CLIENTE--");
+        }// TODO add your handling code here:
+    }                                        
+
+    private void entradaCategoriaFocusGained(java.awt.event.FocusEvent evt) {                                             
+        if (entradaCategoria.getText().equals("--INFORMAR A CATEGORIA--")){
+            entradaCategoria.setText("");
+        }// TODO add your handling code here:
+    }                                            
+
+    private void entradaCategoriaFocusLost(java.awt.event.FocusEvent evt) {                                           
+        if (entradaCategoria.getText().equals("")){
+            entradaCategoria.setText("--INFORMAR A CATEGORIA--");
+        }// TODO add your handling code here:
+    }                                          
+
+    private void entradaProdutoFocusGained(java.awt.event.FocusEvent evt) {                                           
+        if (entradaProduto.getText().equals("--INFORMAR O PRODUTO--")){
+            entradaProduto.setText("");
+        }// TODO add your handling code here:
+    }                                          
+
+    private void entradaProdutoFocusLost(java.awt.event.FocusEvent evt) {                                         
+        if (entradaProduto.getText().equals("")){
+            entradaProduto.setText("--INFORMAR O PRODUTO--");
+        }// TODO add your handling code here:
+    }                                        
 
     /**
      * @param args the command line arguments
@@ -560,7 +611,6 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField entradaCliente;
     private javax.swing.JTextField entradaDeCodigo;
     private javax.swing.JTextField entradaProduto;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPaneClientes;
     private javax.swing.JScrollPane jScrollPaneDisplay;
     private javax.swing.JScrollPane jScrollPaneEstoque;
@@ -568,6 +618,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPaneVendas;
     private javax.swing.JLabel labelCategoria;
     private javax.swing.JLabel labelClicavelCadastrarProduto;
+    private javax.swing.JLabel labelClicavelRelatorioDeVendas;
     private javax.swing.JLabel labelCliente;
     private javax.swing.JLabel labelCllicavelCadastrarCliente;
     private javax.swing.JLabel labelProduto;
@@ -585,4 +636,3 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable tabelaVendas;
     // End of variables declaration                   
 }
-
