@@ -17,6 +17,20 @@ public class PainelPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        dialogRegistrarReabastecimento = new javax.swing.JDialog();
+        labelCodigoProdutoReabastecimento = new javax.swing.JLabel();
+        jScrollPaneProdutosReabastecidos = new javax.swing.JScrollPane();
+        tabelaProdutosReabastecidos = new javax.swing.JTable();
+        entradaCodigoProdutoReabastecimento = new javax.swing.JTextField();
+        labelCategoriaReabastecimento = new javax.swing.JLabel();
+        entradaCategoriaReabastecimento = new javax.swing.JTextField();
+        labelProdutoReabastecimento = new javax.swing.JLabel();
+        entradaProdutoReabastecimento = new javax.swing.JTextField();
+        botaoAdicionarReabastecimento = new javax.swing.JButton();
+        labelQuantidadeReabastecimento = new javax.swing.JLabel();
+        entradaQuantidadeReabastecimento = new javax.swing.JTextField();
+        botaoFinalizarReabastecimento = new javax.swing.JButton();
+        botaoCancelarReabastecimento = new javax.swing.JButton();
         pannelLogotipo = new javax.swing.JPanel();
         logotipo = new javax.swing.JLabel();
         pannelDisplayEntrada = new javax.swing.JPanel();
@@ -46,6 +60,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jScrollPaneEstoque = new javax.swing.JScrollPane();
         tabelaEstoque = new javax.swing.JTable();
         labelClicavelCadastrarProduto = new javax.swing.JLabel();
+        labelClicavelRegistrarReabastecimento = new javax.swing.JLabel();
         pannelAbaHistoricoDeVendas = new javax.swing.JPanel();
         jScrollPaneVendas = new javax.swing.JScrollPane();
         tabelaVendas = new javax.swing.JTable();
@@ -54,6 +69,110 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jScrollPaneClientes = new javax.swing.JScrollPane();
         tabelaClientes = new javax.swing.JTable();
         labelCllicavelCadastrarCliente = new javax.swing.JLabel();
+
+        labelCodigoProdutoReabastecimento.setText("Código do Produto");
+
+        tabelaProdutosReabastecidos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Código do Produto", "Nome", "Categoria", "Quantidade"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPaneProdutosReabastecidos.setViewportView(tabelaProdutosReabastecidos);
+
+        labelCategoriaReabastecimento.setText("Categoria");
+
+        labelProdutoReabastecimento.setText("Produto");
+
+        botaoAdicionarReabastecimento.setText("Adicionar");
+
+        labelQuantidadeReabastecimento.setText("Quantidade");
+
+        botaoFinalizarReabastecimento.setText("Finalizar");
+
+        botaoCancelarReabastecimento.setText("Cancelar");
+
+        javax.swing.GroupLayout dialogRegistrarReabastecimentoLayout = new javax.swing.GroupLayout(dialogRegistrarReabastecimento.getContentPane());
+        dialogRegistrarReabastecimento.getContentPane().setLayout(dialogRegistrarReabastecimentoLayout);
+        dialogRegistrarReabastecimentoLayout.setHorizontalGroup(
+            dialogRegistrarReabastecimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogRegistrarReabastecimentoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialogRegistrarReabastecimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneProdutosReabastecidos)
+                    .addGroup(dialogRegistrarReabastecimentoLayout.createSequentialGroup()
+                        .addGroup(dialogRegistrarReabastecimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelQuantidadeReabastecimento)
+                            .addGroup(dialogRegistrarReabastecimentoLayout.createSequentialGroup()
+                                .addGroup(dialogRegistrarReabastecimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(entradaQuantidadeReabastecimento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(labelCodigoProdutoReabastecimento, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(entradaCodigoProdutoReabastecimento, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(32, 32, 32)
+                                .addGroup(dialogRegistrarReabastecimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelCategoriaReabastecimento)
+                                    .addComponent(entradaCategoriaReabastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(34, 34, 34)
+                                .addGroup(dialogRegistrarReabastecimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelProdutoReabastecimento)
+                                    .addComponent(entradaProdutoReabastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addComponent(botaoAdicionarReabastecimento))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogRegistrarReabastecimentoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botaoCancelarReabastecimento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoFinalizarReabastecimento)))
+                .addContainerGap())
+        );
+        dialogRegistrarReabastecimentoLayout.setVerticalGroup(
+            dialogRegistrarReabastecimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogRegistrarReabastecimentoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialogRegistrarReabastecimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogRegistrarReabastecimentoLayout.createSequentialGroup()
+                        .addGroup(dialogRegistrarReabastecimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelCodigoProdutoReabastecimento)
+                            .addComponent(labelCategoriaReabastecimento)
+                            .addComponent(labelProdutoReabastecimento))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(dialogRegistrarReabastecimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(entradaCodigoProdutoReabastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(entradaCategoriaReabastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(entradaProdutoReabastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(labelQuantidadeReabastecimento)
+                        .addGap(7, 7, 7)
+                        .addComponent(entradaQuantidadeReabastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoAdicionarReabastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPaneProdutosReabastecidos, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(dialogRegistrarReabastecimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoFinalizarReabastecimento)
+                    .addComponent(botaoCancelarReabastecimento))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -314,6 +433,20 @@ public class PainelPrincipal extends javax.swing.JFrame {
             }
         });
 
+        labelClicavelRegistrarReabastecimento.setForeground(new java.awt.Color(0, 0, 255));
+        labelClicavelRegistrarReabastecimento.setText("<HTML><U>Registrar Reabastecimento<U><HTML>");
+        labelClicavelRegistrarReabastecimento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelClicavelRegistrarReabastecimentoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                labelClicavelRegistrarReabastecimentoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                labelClicavelRegistrarReabastecimentoMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout pannelAbaEstoqueLayout = new javax.swing.GroupLayout(pannelAbaEstoque);
         pannelAbaEstoque.setLayout(pannelAbaEstoqueLayout);
         pannelAbaEstoqueLayout.setHorizontalGroup(
@@ -324,6 +457,8 @@ public class PainelPrincipal extends javax.swing.JFrame {
                     .addComponent(jScrollPaneEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
                     .addGroup(pannelAbaEstoqueLayout.createSequentialGroup()
                         .addComponent(labelClicavelCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelClicavelRegistrarReabastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -333,7 +468,9 @@ public class PainelPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPaneEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelClicavelCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pannelAbaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelClicavelCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelClicavelRegistrarReabastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pannelNavegacao.add(pannelAbaEstoque, "abaEstoque");
@@ -561,6 +698,18 @@ public class PainelPrincipal extends javax.swing.JFrame {
         }// TODO add your handling code here:
     }                                        
 
+    private void labelClicavelRegistrarReabastecimentoMouseEntered(java.awt.event.MouseEvent evt) {                                                                   
+        labelClicavelRegistrarReabastecimento.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));        // TODO add your handling code here:
+    }                                                                  
+
+    private void labelClicavelRegistrarReabastecimentoMouseExited(java.awt.event.MouseEvent evt) {                                                                  
+        labelClicavelRegistrarReabastecimento.setCursor(java.awt.Cursor.getDefaultCursor());    // TODO add your handling code here:
+    }                                                                 
+
+    private void labelClicavelRegistrarReabastecimentoMouseClicked(java.awt.event.MouseEvent evt) {                                                                   
+        dialogRegistrarReabastecimento.setVisible(true);        // TODO add your handling code here:
+    }                                                                  
+
     /**
      * @param args the command line arguments
      */
@@ -602,26 +751,40 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botaoAbaHistoricoDeVendas;
     private javax.swing.JButton botaoAbaVenda;
     private javax.swing.JButton botaoAdicionar;
+    private javax.swing.JButton botaoAdicionarReabastecimento;
     private javax.swing.JButton botaoCancelar;
+    private javax.swing.JButton botaoCancelarReabastecimento;
     private javax.swing.JButton botaoFinalizar;
+    private javax.swing.JButton botaoFinalizarReabastecimento;
+    private javax.swing.JDialog dialogRegistrarReabastecimento;
     private javax.swing.JLabel displayError;
     private javax.swing.JTextArea displayRelatorioDaVenda;
     private javax.swing.JTextArea displaySaida;
     private javax.swing.JTextField entradaCategoria;
+    private javax.swing.JTextField entradaCategoriaReabastecimento;
     private javax.swing.JTextField entradaCliente;
+    private javax.swing.JTextField entradaCodigoProdutoReabastecimento;
     private javax.swing.JTextField entradaDeCodigo;
     private javax.swing.JTextField entradaProduto;
+    private javax.swing.JTextField entradaProdutoReabastecimento;
+    private javax.swing.JTextField entradaQuantidadeReabastecimento;
     private javax.swing.JScrollPane jScrollPaneClientes;
     private javax.swing.JScrollPane jScrollPaneDisplay;
     private javax.swing.JScrollPane jScrollPaneEstoque;
+    private javax.swing.JScrollPane jScrollPaneProdutosReabastecidos;
     private javax.swing.JScrollPane jScrollPaneRelatorioVenda;
     private javax.swing.JScrollPane jScrollPaneVendas;
     private javax.swing.JLabel labelCategoria;
+    private javax.swing.JLabel labelCategoriaReabastecimento;
     private javax.swing.JLabel labelClicavelCadastrarProduto;
+    private javax.swing.JLabel labelClicavelRegistrarReabastecimento;
     private javax.swing.JLabel labelClicavelRelatorioDeVendas;
     private javax.swing.JLabel labelCliente;
     private javax.swing.JLabel labelCllicavelCadastrarCliente;
+    private javax.swing.JLabel labelCodigoProdutoReabastecimento;
     private javax.swing.JLabel labelProduto;
+    private javax.swing.JLabel labelProdutoReabastecimento;
+    private javax.swing.JLabel labelQuantidadeReabastecimento;
     private javax.swing.JLabel logotipo;
     private javax.swing.JPanel pannelAbaCadastroDeClientes;
     private javax.swing.JPanel pannelAbaEstoque;
@@ -633,6 +796,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel pannelNavegacao;
     private javax.swing.JTable tabelaClientes;
     private javax.swing.JTable tabelaEstoque;
+    private javax.swing.JTable tabelaProdutosReabastecidos;
     private javax.swing.JTable tabelaVendas;
     // End of variables declaration                   
 }
