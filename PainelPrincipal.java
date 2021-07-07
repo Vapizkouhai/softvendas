@@ -31,6 +31,17 @@ public class PainelPrincipal extends javax.swing.JFrame {
         entradaQuantidadeReabastecimento = new javax.swing.JTextField();
         botaoFinalizarReabastecimento = new javax.swing.JButton();
         botaoCancelarReabastecimento = new javax.swing.JButton();
+        dialogCadastrarCliente = new javax.swing.JDialog();
+        labelCadastroNomeCliente = new javax.swing.JLabel();
+        entradaCadastroNomeCliente = new javax.swing.JTextField();
+        labelCadastroIdentificação = new javax.swing.JLabel();
+        entradaCadastroIdentificação = new javax.swing.JTextField();
+        jRadioButtonCadastroCpf = new javax.swing.JRadioButton();
+        jRadioButtonCadastroCnpj = new javax.swing.JRadioButton();
+        botaoCadastroCadastrar = new javax.swing.JButton();
+        labelCadastroAvisaErro = new javax.swing.JLabel();
+        dialogRelatorioDeVendas = new javax.swing.JDialog();
+        dialogGerenciarEstoque = new javax.swing.JDialog();
         pannelLogotipo = new javax.swing.JPanel();
         logotipo = new javax.swing.JLabel();
         pannelDisplayEntrada = new javax.swing.JPanel();
@@ -70,24 +81,25 @@ public class PainelPrincipal extends javax.swing.JFrame {
         tabelaClientes = new javax.swing.JTable();
         labelCllicavelCadastrarCliente = new javax.swing.JLabel();
 
+        dialogRegistrarReabastecimento.setTitle("Registrar Reabastecimento");
+        dialogRegistrarReabastecimento.setMinimumSize(new java.awt.Dimension(631, 355));
+        dialogRegistrarReabastecimento.setResizable(false);
+
         labelCodigoProdutoReabastecimento.setText("Código do Produto");
 
         tabelaProdutosReabastecidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Código do Produto", "Nome", "Categoria", "Quantidade"
+                "Código do Produto", "Nome", "Categoria", "Quantidade", "Valor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -174,13 +186,94 @@ public class PainelPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        labelCadastroNomeCliente.setText("Nome do Cliente");
+
+        labelCadastroIdentificação.setText("Identificação");
+
+        jRadioButtonCadastroCpf.setText("CPF");
+
+        jRadioButtonCadastroCnpj.setText("CNPJ");
+
+        botaoCadastroCadastrar.setText("Cadastrar");
+
+        labelCadastroAvisaErro.setForeground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout dialogCadastrarClienteLayout = new javax.swing.GroupLayout(dialogCadastrarCliente.getContentPane());
+        dialogCadastrarCliente.getContentPane().setLayout(dialogCadastrarClienteLayout);
+        dialogCadastrarClienteLayout.setHorizontalGroup(
+            dialogCadastrarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogCadastrarClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialogCadastrarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelCadastroAvisaErro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(dialogCadastrarClienteLayout.createSequentialGroup()
+                        .addGroup(dialogCadastrarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelCadastroNomeCliente)
+                            .addGroup(dialogCadastrarClienteLayout.createSequentialGroup()
+                                .addComponent(labelCadastroIdentificação)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButtonCadastroCpf)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButtonCadastroCnpj))
+                            .addComponent(entradaCadastroNomeCliente)
+                            .addComponent(entradaCadastroIdentificação))
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoCadastroCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        dialogCadastrarClienteLayout.setVerticalGroup(
+            dialogCadastrarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogCadastrarClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialogCadastrarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogCadastrarClienteLayout.createSequentialGroup()
+                        .addComponent(labelCadastroNomeCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entradaCadastroNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(dialogCadastrarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelCadastroIdentificação)
+                            .addComponent(jRadioButtonCadastroCpf)
+                            .addComponent(jRadioButtonCadastroCnpj))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogCadastrarClienteLayout.createSequentialGroup()
+                        .addComponent(botaoCadastroCadastrar)
+                        .addGap(12, 12, 12)))
+                .addComponent(entradaCadastroIdentificação, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelCadastroAvisaErro, javax.swing.GroupLayout.DEFAULT_SIZE, 14, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout dialogRelatorioDeVendasLayout = new javax.swing.GroupLayout(dialogRelatorioDeVendas.getContentPane());
+        dialogRelatorioDeVendas.getContentPane().setLayout(dialogRelatorioDeVendasLayout);
+        dialogRelatorioDeVendasLayout.setHorizontalGroup(
+            dialogRelatorioDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        dialogRelatorioDeVendasLayout.setVerticalGroup(
+            dialogRelatorioDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout dialogGerenciarEstoqueLayout = new javax.swing.GroupLayout(dialogGerenciarEstoque.getContentPane());
+        dialogGerenciarEstoque.getContentPane().setLayout(dialogGerenciarEstoqueLayout);
+        dialogGerenciarEstoqueLayout.setHorizontalGroup(
+            dialogGerenciarEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        dialogGerenciarEstoqueLayout.setVerticalGroup(
+            dialogGerenciarEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         logotipo.setBackground(new java.awt.Color(204, 255, 51));
-        logotipo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        logotipo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         logotipo.setForeground(new java.awt.Color(0, 204, 204));
         logotipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logotipo.setText("SoftVendas");
+        logotipo.setText("Software Vendas");
         logotipo.setOpaque(true);
 
         javax.swing.GroupLayout pannelLogotipoLayout = new javax.swing.GroupLayout(pannelLogotipo);
@@ -393,10 +486,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
 
         tabelaEstoque.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Código", "Nome", "Quantidade", "Valor", "Disponível"
@@ -477,10 +567,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
 
         tabelaVendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Código da Venda", "Cliente", "Itens Comprados", "Valor Total", "Horário", "Data da Transação"
@@ -532,10 +619,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
 
         tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "CPF/CNPJ", "Nome", "Valor Total em Compras", "Vendas Totais", "Disponível"
@@ -752,14 +836,20 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botaoAbaVenda;
     private javax.swing.JButton botaoAdicionar;
     private javax.swing.JButton botaoAdicionarReabastecimento;
+    private javax.swing.JButton botaoCadastroCadastrar;
     private javax.swing.JButton botaoCancelar;
     private javax.swing.JButton botaoCancelarReabastecimento;
     private javax.swing.JButton botaoFinalizar;
     private javax.swing.JButton botaoFinalizarReabastecimento;
+    private javax.swing.JDialog dialogCadastrarCliente;
+    private javax.swing.JDialog dialogGerenciarEstoque;
     private javax.swing.JDialog dialogRegistrarReabastecimento;
+    private javax.swing.JDialog dialogRelatorioDeVendas;
     private javax.swing.JLabel displayError;
     private javax.swing.JTextArea displayRelatorioDaVenda;
     private javax.swing.JTextArea displaySaida;
+    private javax.swing.JTextField entradaCadastroIdentificação;
+    private javax.swing.JTextField entradaCadastroNomeCliente;
     private javax.swing.JTextField entradaCategoria;
     private javax.swing.JTextField entradaCategoriaReabastecimento;
     private javax.swing.JTextField entradaCliente;
@@ -768,12 +858,17 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField entradaProduto;
     private javax.swing.JTextField entradaProdutoReabastecimento;
     private javax.swing.JTextField entradaQuantidadeReabastecimento;
+    private javax.swing.JRadioButton jRadioButtonCadastroCnpj;
+    private javax.swing.JRadioButton jRadioButtonCadastroCpf;
     private javax.swing.JScrollPane jScrollPaneClientes;
     private javax.swing.JScrollPane jScrollPaneDisplay;
     private javax.swing.JScrollPane jScrollPaneEstoque;
     private javax.swing.JScrollPane jScrollPaneProdutosReabastecidos;
     private javax.swing.JScrollPane jScrollPaneRelatorioVenda;
     private javax.swing.JScrollPane jScrollPaneVendas;
+    private javax.swing.JLabel labelCadastroAvisaErro;
+    private javax.swing.JLabel labelCadastroIdentificação;
+    private javax.swing.JLabel labelCadastroNomeCliente;
     private javax.swing.JLabel labelCategoria;
     private javax.swing.JLabel labelCategoriaReabastecimento;
     private javax.swing.JLabel labelClicavelCadastrarProduto;
