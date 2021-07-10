@@ -42,6 +42,11 @@ public class PainelPrincipal extends javax.swing.JFrame {
         labelCadastroAvisaErro = new javax.swing.JLabel();
         dialogRelatorioDeVendas = new javax.swing.JDialog();
         dialogGerenciarEstoque = new javax.swing.JDialog();
+        dialogSelecionarItem = new javax.swing.JDialog();
+        jScrollPaneListaSelecionarItem = new javax.swing.JScrollPane();
+        listaSelecionarItem = new javax.swing.JList<>();
+        labelSelecionarItem = new javax.swing.JLabel();
+        botaoCancelarSelecionarItem = new javax.swing.JButton();
         pannelLogotipo = new javax.swing.JPanel();
         logotipo = new javax.swing.JLabel();
         pannelDisplayEntrada = new javax.swing.JPanel();
@@ -55,18 +60,6 @@ public class PainelPrincipal extends javax.swing.JFrame {
         botaoAbaHistoricoDeVendas = new javax.swing.JButton();
         botaoAbaCadastroDeClientes = new javax.swing.JButton();
         pannelNavegacao = new javax.swing.JPanel();
-        pannelAbaVenda = new javax.swing.JPanel();
-        jScrollPaneRelatorioVenda = new javax.swing.JScrollPane();
-        displayRelatorioDaVenda = new javax.swing.JTextArea();
-        botaoFinalizar = new javax.swing.JButton();
-        botaoAdicionar = new javax.swing.JButton();
-        botaoCancelar = new javax.swing.JButton();
-        labelCliente = new javax.swing.JLabel();
-        entradaCliente = new javax.swing.JTextField();
-        labelCategoria = new javax.swing.JLabel();
-        entradaCategoria = new javax.swing.JTextField();
-        labelProduto = new javax.swing.JLabel();
-        entradaProduto = new javax.swing.JTextField();
         pannelAbaEstoque = new javax.swing.JPanel();
         jScrollPaneEstoque = new javax.swing.JScrollPane();
         tabelaEstoque = new javax.swing.JTable();
@@ -80,6 +73,23 @@ public class PainelPrincipal extends javax.swing.JFrame {
         jScrollPaneClientes = new javax.swing.JScrollPane();
         tabelaClientes = new javax.swing.JTable();
         labelCllicavelCadastrarCliente = new javax.swing.JLabel();
+        pannelAbaVendas = new javax.swing.JLayeredPane();
+        jScrollPaneRelatorioVenda = new javax.swing.JScrollPane();
+        displayRelatorioDaVenda = new javax.swing.JTextArea();
+        botaoFinalizar = new javax.swing.JButton();
+        botaoAdicionar = new javax.swing.JButton();
+        botaoCancelar = new javax.swing.JButton();
+        labelCliente = new javax.swing.JLabel();
+        entradaCliente = new javax.swing.JTextField();
+        labelCategoria = new javax.swing.JLabel();
+        entradaCategoria = new javax.swing.JTextField();
+        labelProduto = new javax.swing.JLabel();
+        entradaProduto = new javax.swing.JTextField();
+        labelQuantidade = new javax.swing.JLabel();
+        entradaQuantidade = new javax.swing.JTextField();
+        botaoBuscarCliente = new javax.swing.JButton();
+        botaoBuscarCategoria = new javax.swing.JButton();
+        botaoBuscarProduto = new javax.swing.JButton();
 
         dialogRegistrarReabastecimento.setTitle("Registrar Reabastecimento");
         dialogRegistrarReabastecimento.setMinimumSize(new java.awt.Dimension(631, 355));
@@ -267,7 +277,42 @@ public class PainelPrincipal extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jScrollPaneListaSelecionarItem.setViewportView(listaSelecionarItem);
+
+        labelSelecionarItem.setText("Selecionar");
+
+        botaoCancelarSelecionarItem.setText("Cancelar");
+
+        javax.swing.GroupLayout dialogSelecionarItemLayout = new javax.swing.GroupLayout(dialogSelecionarItem.getContentPane());
+        dialogSelecionarItem.getContentPane().setLayout(dialogSelecionarItemLayout);
+        dialogSelecionarItemLayout.setHorizontalGroup(
+            dialogSelecionarItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogSelecionarItemLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(dialogSelecionarItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneListaSelecionarItem, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addGroup(dialogSelecionarItemLayout.createSequentialGroup()
+                        .addComponent(labelSelecionarItem)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSelecionarItemLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botaoCancelarSelecionarItem)))
+                .addContainerGap())
+        );
+        dialogSelecionarItemLayout.setVerticalGroup(
+            dialogSelecionarItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSelecionarItemLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelSelecionarItem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jScrollPaneListaSelecionarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoCancelarSelecionarItem)
+                .addGap(8, 8, 8))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         logotipo.setBackground(new java.awt.Color(204, 255, 51));
         logotipo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -386,104 +431,6 @@ public class PainelPrincipal extends javax.swing.JFrame {
 
         pannelNavegacao.setLayout(new java.awt.CardLayout());
 
-        displayRelatorioDaVenda.setEditable(false);
-        displayRelatorioDaVenda.setColumns(20);
-        displayRelatorioDaVenda.setRows(5);
-        jScrollPaneRelatorioVenda.setViewportView(displayRelatorioDaVenda);
-
-        botaoFinalizar.setText("Finalizar");
-
-        botaoAdicionar.setText("Adicionar");
-
-        botaoCancelar.setText("Cancelar");
-
-        labelCliente.setText("Cliente");
-
-        entradaCliente.setText("--INFORMAR O CLIENTE--");
-        entradaCliente.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                entradaClienteFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                entradaClienteFocusLost(evt);
-            }
-        });
-
-        labelCategoria.setText("Categoria do Produto");
-
-        entradaCategoria.setText("--INFORMAR A CATEGORIA--");
-        entradaCategoria.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                entradaCategoriaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                entradaCategoriaFocusLost(evt);
-            }
-        });
-
-        labelProduto.setText("Produto");
-
-        entradaProduto.setText("--INFORMAR O PRODUTO--");
-        entradaProduto.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                entradaProdutoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                entradaProdutoFocusLost(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pannelAbaVendaLayout = new javax.swing.GroupLayout(pannelAbaVenda);
-        pannelAbaVenda.setLayout(pannelAbaVendaLayout);
-        pannelAbaVendaLayout.setHorizontalGroup(
-            pannelAbaVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pannelAbaVendaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPaneRelatorioVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pannelAbaVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pannelAbaVendaLayout.createSequentialGroup()
-                        .addComponent(botaoCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botaoAdicionar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botaoFinalizar))
-                    .addComponent(labelCliente)
-                    .addComponent(labelProduto)
-                    .addComponent(entradaCliente)
-                    .addComponent(entradaCategoria)
-                    .addComponent(entradaProduto)
-                    .addComponent(labelCategoria))
-                .addContainerGap())
-        );
-        pannelAbaVendaLayout.setVerticalGroup(
-            pannelAbaVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelAbaVendaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pannelAbaVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pannelAbaVendaLayout.createSequentialGroup()
-                        .addComponent(labelCliente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(entradaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelCategoria)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(entradaCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelProduto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(entradaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                        .addGroup(pannelAbaVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(botaoFinalizar)
-                            .addComponent(botaoAdicionar)
-                            .addComponent(botaoCancelar)))
-                    .addComponent(jScrollPaneRelatorioVenda))
-                .addContainerGap())
-        );
-
-        pannelNavegacao.add(pannelAbaVenda, "abaVenda");
-
         tabelaEstoque.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -544,7 +491,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
             .addGroup(pannelAbaEstoqueLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pannelAbaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
                     .addGroup(pannelAbaEstoqueLayout.createSequentialGroup()
                         .addComponent(labelClicavelCadastrarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -600,7 +547,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
             .addGroup(pannelAbaHistoricoDeVendasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pannelAbaHistoricoDeVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
                     .addGroup(pannelAbaHistoricoDeVendasLayout.createSequentialGroup()
                         .addComponent(labelClicavelRelatorioDeVendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -652,7 +599,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
             .addGroup(pannelAbaCadastroDeClientesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pannelAbaCadastroDeClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
                     .addGroup(pannelAbaCadastroDeClientesLayout.createSequentialGroup()
                         .addComponent(labelCllicavelCadastrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -668,6 +615,149 @@ public class PainelPrincipal extends javax.swing.JFrame {
         );
 
         pannelNavegacao.add(pannelAbaCadastroDeClientes, "abaCliente");
+
+        displayRelatorioDaVenda.setEditable(false);
+        displayRelatorioDaVenda.setColumns(20);
+        displayRelatorioDaVenda.setRows(5);
+        jScrollPaneRelatorioVenda.setViewportView(displayRelatorioDaVenda);
+
+        botaoFinalizar.setText("Finalizar");
+
+        botaoAdicionar.setText("Adicionar");
+
+        botaoCancelar.setText("Cancelar");
+
+        labelCliente.setText("Cliente");
+
+        entradaCliente.setText("--INFORMAR O CLIENTE--");
+        entradaCliente.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                entradaClienteFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                entradaClienteFocusLost(evt);
+            }
+        });
+
+        labelCategoria.setText("Categoria do Produto");
+
+        entradaCategoria.setText("--INFORMAR A CATEGORIA--");
+        entradaCategoria.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                entradaCategoriaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                entradaCategoriaFocusLost(evt);
+            }
+        });
+
+        labelProduto.setText("Produto");
+
+        entradaProduto.setText("--INFORMAR O PRODUTO--");
+        entradaProduto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                entradaProdutoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                entradaProdutoFocusLost(evt);
+            }
+        });
+
+        labelQuantidade.setText("Quantidade");
+
+        botaoBuscarCliente.setText("...");
+
+        botaoBuscarCategoria.setText("...");
+
+        botaoBuscarProduto.setText("...");
+
+        pannelAbaVendas.setLayer(jScrollPaneRelatorioVenda, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(botaoFinalizar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(botaoAdicionar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(botaoCancelar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(labelCliente, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(entradaCliente, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(labelCategoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(entradaCategoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(labelProduto, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(entradaProduto, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(labelQuantidade, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(entradaQuantidade, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(botaoBuscarCliente, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(botaoBuscarCategoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannelAbaVendas.setLayer(botaoBuscarProduto, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout pannelAbaVendasLayout = new javax.swing.GroupLayout(pannelAbaVendas);
+        pannelAbaVendas.setLayout(pannelAbaVendasLayout);
+        pannelAbaVendasLayout.setHorizontalGroup(
+            pannelAbaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pannelAbaVendasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPaneRelatorioVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pannelAbaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pannelAbaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelAbaVendasLayout.createSequentialGroup()
+                            .addComponent(botaoCancelar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(botaoAdicionar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(botaoFinalizar))
+                        .addComponent(labelCategoria)
+                        .addComponent(labelProduto)
+                        .addGroup(pannelAbaVendasLayout.createSequentialGroup()
+                            .addGroup(pannelAbaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(entradaProduto, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(entradaCategoria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                                .addComponent(entradaCliente, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(pannelAbaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pannelAbaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(botaoBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(botaoBuscarCategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(botaoBuscarProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(labelQuantidade)
+                    .addComponent(entradaQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCliente))
+                .addContainerGap())
+        );
+        pannelAbaVendasLayout.setVerticalGroup(
+            pannelAbaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelAbaVendasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pannelAbaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pannelAbaVendasLayout.createSequentialGroup()
+                        .addComponent(labelCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pannelAbaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(entradaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(labelCategoria)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pannelAbaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(entradaCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoBuscarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(labelProduto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pannelAbaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(entradaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoBuscarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(labelQuantidade)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entradaQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pannelAbaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botaoFinalizar)
+                            .addComponent(botaoAdicionar)
+                            .addComponent(botaoCancelar)))
+                    .addComponent(jScrollPaneRelatorioVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        pannelNavegacao.add(pannelAbaVendas, "abaVenda");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -695,7 +785,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pannelAbas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pannelNavegacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -836,15 +926,20 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botaoAbaVenda;
     private javax.swing.JButton botaoAdicionar;
     private javax.swing.JButton botaoAdicionarReabastecimento;
+    private javax.swing.JButton botaoBuscarCategoria;
+    private javax.swing.JButton botaoBuscarCliente;
+    private javax.swing.JButton botaoBuscarProduto;
     private javax.swing.JButton botaoCadastroCadastrar;
     private javax.swing.JButton botaoCancelar;
     private javax.swing.JButton botaoCancelarReabastecimento;
+    private javax.swing.JButton botaoCancelarSelecionarItem;
     private javax.swing.JButton botaoFinalizar;
     private javax.swing.JButton botaoFinalizarReabastecimento;
     private javax.swing.JDialog dialogCadastrarCliente;
     private javax.swing.JDialog dialogGerenciarEstoque;
     private javax.swing.JDialog dialogRegistrarReabastecimento;
     private javax.swing.JDialog dialogRelatorioDeVendas;
+    private javax.swing.JDialog dialogSelecionarItem;
     private javax.swing.JLabel displayError;
     private javax.swing.JTextArea displayRelatorioDaVenda;
     private javax.swing.JTextArea displaySaida;
@@ -857,12 +952,14 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField entradaDeCodigo;
     private javax.swing.JTextField entradaProduto;
     private javax.swing.JTextField entradaProdutoReabastecimento;
+    private javax.swing.JTextField entradaQuantidade;
     private javax.swing.JTextField entradaQuantidadeReabastecimento;
     private javax.swing.JRadioButton jRadioButtonCadastroCnpj;
     private javax.swing.JRadioButton jRadioButtonCadastroCpf;
     private javax.swing.JScrollPane jScrollPaneClientes;
     private javax.swing.JScrollPane jScrollPaneDisplay;
     private javax.swing.JScrollPane jScrollPaneEstoque;
+    private javax.swing.JScrollPane jScrollPaneListaSelecionarItem;
     private javax.swing.JScrollPane jScrollPaneProdutosReabastecidos;
     private javax.swing.JScrollPane jScrollPaneRelatorioVenda;
     private javax.swing.JScrollPane jScrollPaneVendas;
@@ -879,12 +976,15 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel labelCodigoProdutoReabastecimento;
     private javax.swing.JLabel labelProduto;
     private javax.swing.JLabel labelProdutoReabastecimento;
+    private javax.swing.JLabel labelQuantidade;
     private javax.swing.JLabel labelQuantidadeReabastecimento;
+    private javax.swing.JLabel labelSelecionarItem;
+    private javax.swing.JList<String> listaSelecionarItem;
     private javax.swing.JLabel logotipo;
     private javax.swing.JPanel pannelAbaCadastroDeClientes;
     private javax.swing.JPanel pannelAbaEstoque;
     private javax.swing.JPanel pannelAbaHistoricoDeVendas;
-    private javax.swing.JPanel pannelAbaVenda;
+    private javax.swing.JLayeredPane pannelAbaVendas;
     private javax.swing.JPanel pannelAbas;
     private javax.swing.JPanel pannelDisplayEntrada;
     private javax.swing.JPanel pannelLogotipo;
