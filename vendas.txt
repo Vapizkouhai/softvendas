@@ -1,0 +1,1 @@
+Comprador [Lista_de_compras] Valor_a_pagar data_e_hora (NÃO ALTERAR)

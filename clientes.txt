@@ -1,0 +1,1 @@
+Identificação Tipo_de_identificação Nome Ativo Quantidade_de_compras Quantidade_itens_comprados Valor_comprado_total (NÃO ALTERAR)

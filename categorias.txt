@@ -1,0 +1,10 @@
+0 Direção
+1 Elétrica
+2 Filtros
+3 Frenagem
+4 Ignição
+5 Lubrificantes
+6 Motor
+7 Outros
+8 Pneus
+9 Suspensão
