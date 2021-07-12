@@ -47,6 +47,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
         listaSelecionarItem = new javax.swing.JList<>();
         labelSelecionarItem = new javax.swing.JLabel();
         botaoCancelarSelecionarItem = new javax.swing.JButton();
+        dialogDetalhesDoCliente = new javax.swing.JDialog();
         pannelLogotipo = new javax.swing.JPanel();
         logotipo = new javax.swing.JLabel();
         pannelDisplayEntrada = new javax.swing.JPanel();
@@ -309,6 +310,17 @@ public class PainelPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoCancelarSelecionarItem)
                 .addGap(8, 8, 8))
+        );
+
+        javax.swing.GroupLayout dialogDetalhesDoClienteLayout = new javax.swing.GroupLayout(dialogDetalhesDoCliente.getContentPane());
+        dialogDetalhesDoCliente.getContentPane().setLayout(dialogDetalhesDoClienteLayout);
+        dialogDetalhesDoClienteLayout.setHorizontalGroup(
+            dialogDetalhesDoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        dialogDetalhesDoClienteLayout.setVerticalGroup(
+            dialogDetalhesDoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -884,9 +896,6 @@ public class PainelPrincipal extends javax.swing.JFrame {
         dialogRegistrarReabastecimento.setVisible(true);        // TODO add your handling code here:
     }                                                                  
 
-    /**
-     * @param args the command line arguments
-     */
     public void executar() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -900,22 +909,16 @@ public class PainelPrincipal extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PainelPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PainelPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PainelPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(PainelPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PainelPrincipal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new PainelPrincipal().setVisible(true);
         });
     }
 
@@ -936,6 +939,7 @@ public class PainelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botaoFinalizar;
     private javax.swing.JButton botaoFinalizarReabastecimento;
     private javax.swing.JDialog dialogCadastrarCliente;
+    private javax.swing.JDialog dialogDetalhesDoCliente;
     private javax.swing.JDialog dialogGerenciarEstoque;
     private javax.swing.JDialog dialogRegistrarReabastecimento;
     private javax.swing.JDialog dialogRelatorioDeVendas;
